@@ -15,8 +15,8 @@ export default function App() {
 
   const [inputValue, setInputValue] = useState("");
 
+  // add item to list
   const addItem = () => {
-    // add item to list from input field
     if (inputValue === "") return;
     setGoals((prevGoals) => [
       { id: Math.random().toString(), value: inputValue },
@@ -25,12 +25,14 @@ export default function App() {
     setInputValue("");
   };
 
+  // delete item from list
   const deleteItem = (id) => {
     setGoals((prevGoals) => {
       return prevGoals.filter((goal) => goal.id !== id);
     });
   };
 
+  // render list item
   const renderItem = ({ item }) => (
     <View>
       <TouchableOpacity onPress={() => deleteItem(item.id)}>
@@ -62,6 +64,7 @@ export default function App() {
       </View>
       <View style={styles.toDoList}>
         <FlatList
+          style={{ marginTop: 20 }}
           data={goals}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
@@ -88,6 +91,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 10,
     backgroundColor: "#2E4F4F",
+    padding: 10,
+    fontSize: 20,
   },
   img: {
     width: 150,
@@ -124,21 +129,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   goalItem: {
-    textAlign: "center",
-    borderWidth: 2,
     borderColor: "black",
-    height: 50,
-    borderRadius: 10,
+    borderWidth: 2,
+    height: 60,
+    marginBottom: 20,
+    backgroundColor: "#2E4F4F",
     padding: 10,
-    backgroundColor: "#CBE4DE",
-    marginTop: 10,
-    fontSize: 20,
+    textAlign: "center",
     fontWeight: "bold",
+    fontSize: 20,
   },
   toDoList: {
     flexDirection: "column",
     marginTop: 20,
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignContent: "center",
     padding: 10,
   },
