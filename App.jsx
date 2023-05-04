@@ -15,19 +15,27 @@ export default function App() {
 
   const [inputValue, setInputValue] = useState("");
 
-  const onClick = () => {
+  const addItem = () => {
     // add item to list from input field
     if (inputValue === "") return;
     setGoals((prevGoals) => [
-      ...prevGoals,
       { id: Math.random().toString(), value: inputValue },
+      ...prevGoals,
     ]);
     setInputValue("");
   };
 
+  const deleteItem = (id) => {
+    setGoals((prevGoals) => {
+      return prevGoals.filter((goal) => goal.id !== id);
+    });
+  };
+
   const renderItem = ({ item }) => (
     <View>
-      <Text style={styles.goalItem}>{item.value}</Text>
+      <TouchableOpacity onPress={() => deleteItem(item.id)}>
+        <Text style={styles.goalItem}>{item.value}</Text>
+      </TouchableOpacity>
     </View>
   );
 
@@ -48,7 +56,7 @@ export default function App() {
         <TouchableOpacity style={styles.cancel}>
           <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onClick} style={styles.add}>
+        <TouchableOpacity onPress={addItem} style={styles.add}>
           <Text style={styles.buttonText}>Add</Text>
         </TouchableOpacity>
       </View>
@@ -119,12 +127,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderWidth: 2,
     borderColor: "black",
-    height: 40,
+    height: 50,
     borderRadius: 10,
     padding: 10,
     backgroundColor: "#CBE4DE",
     marginTop: 10,
     fontSize: 20,
+    fontWeight: "bold",
   },
   toDoList: {
     flexDirection: "column",
