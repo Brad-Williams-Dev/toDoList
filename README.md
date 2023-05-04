@@ -12,5 +12,5 @@ This is a simple To-Do List application built using React Native and Expo CLI. I
 
 The purpose of this project is to provide myself a hands-on introduction to React Native. Through building a simple To-Do List app, I can familiarize myself with the fundamentals of React Native, including components, state management, and event handling. Additionally, this project demonstrates how to use the StyleSheet for styling components and the FlatList component for rendering lists. By working on this project, I was able to develop a solid foundation for further exploration of React Native and mobile app development.
 
-![](path/to/screenshot.png)
-![](path/to/screenshot.png)
+![](https://github.com/Brad-Williams-Dev/toDoList/blob/main/assets/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20Max%20-%202023-05-04%20at%2012.05.18.png?raw=true)
+![](https://github.com/Brad-Williams-Dev/toDoList/blob/main/assets/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20Max%20-%202023-05-04%20at%2012.05.18.png?raw=true)
